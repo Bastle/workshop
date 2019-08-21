@@ -3,3 +3,4 @@ common/
 deploy/
 .idea/
 deployed/
+dist/

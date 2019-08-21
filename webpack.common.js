@@ -5,6 +5,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 
 module.exports = {
@@ -17,13 +18,24 @@ module.exports = {
     publicPath: '/'
   },
   plugins:[
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'production'
+      template: './index.html'
     })
   ],
   module:{
     rules:[
+      {
+        test: /\.js|jsx$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['react', 'es2015']
+            }
+          }
+        ]
+      },
       {
         test: /\.css$/,
         use: [
