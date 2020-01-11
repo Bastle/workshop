@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var someAsyncThing = function(){
+    return new Promise((resolve, reject) => {
+      throw new Error('err')
+//      setTimeout(function(){
+//        throw new Error('err')
+//      }, 100)
+    })
+  }
+
+  someAsyncThing().then(res => {
+    console.log('everything is ok', res)
+  }).catch(e => {
+    console.log(e);
+  });
+</script>
+
+</body>
+</html>
