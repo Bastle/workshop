@@ -9,29 +9,18 @@ import todoApp from './reducers/reducer';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import App from './components/App';
-import {
-  addTodo,
-  toggleTodo,
-  setVisibilityFilter,
-  VisibilityFilters
-} from './action/action';
-
-
-// class Main extends React.Component {
-//   render(){
-//     return (<div>{123}</div>)
-//   }
-// }
-// const Main = () => (<div>{123}</div>);
-
-
+import MouseTracker from './page/mouseTracker';
+import Cat from './page/mouseTracker/Cat';
 let store = createStore(todoApp);
 
 
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <div>
+      <App />
+      <MouseTracker render={mouse => <Cat mouse={mouse} />} />
+    </div>
   </Provider>,
   document.getElementById('root')
 );
