@@ -19,7 +19,8 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-redux": "^7.1.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "webpackbar": "^4.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

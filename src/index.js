@@ -11,6 +11,8 @@ import React from 'react';
 import App from './components/App';
 import MouseTracker from './page/mouseTracker';
 import Cat from './page/mouseTracker/Cat';
+import AddNum from './page/addNum';
+import Example from './page/example';
 let store = createStore(todoApp);
 
 
@@ -19,7 +21,9 @@ ReactDOM.render(
   <Provider store={store}>
     <div>
       <App />
-      <MouseTracker render={mouse => <Cat mouse={mouse} />} />
+      {/* <MouseTracker render={mouse => <Cat mouse={mouse} />} /> */}
+      <AddNum />
+      <Example />
     </div>
   </Provider>,
   document.getElementById('root')
