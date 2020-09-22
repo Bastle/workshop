@@ -2,7 +2,7 @@
  * Created by cyb on 2019/8/16.
  */
 import { connect } from 'react-redux';
-import { toggleTodo } from '../action/action';
+import { toggleTodo } from '../../../action/action';
 import TodoList from './TodoList';
 
 

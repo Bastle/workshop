@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../action/action';
+import { addTodo } from '../../../action/action';
 
 let AddTodo = ({dispatch}) => {
   let input;
