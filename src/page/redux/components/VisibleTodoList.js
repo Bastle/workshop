@@ -12,29 +12,47 @@ function getTodos(todos, filter){
     case 'SHOW_ALL':
       return todos;
     case 'SHOW_ACTIVE':
-      return todos.filter(t => !t.completed);
+      return todos.map(t => {
+        t.hide = t.completed;
+        return t;
+      });
     case 'SHOW_COMPLETED':
-      return todos.filter(t => t.completed);
+      return todos.map(t => {
+        t.hide = !t.completed;
+        return t;
+      });
   }
 }
 
-const mapStateToProps = state =>{
-  return {
-   todos: getTodos(state.todos, state.visibilityFilter)
-  }
+const mapStateToProps = (state, ownProps) =>{
+  return Object.assign({}, ownProps, {
+   todos: getTodos(state.todos, state.visibilityFilter, ownProps.name),
+  })
 }
 
 const mapDispatchToProps = dispatch => {
  return {
    onTodoClick: id => {
+     setTimeout(() => {
       dispatch(toggleTodo(id))
+     }, 1000)
    }
  }
 }
+// const mapDispatchToProps = {
+//   onTodoClick: id => dispatch => {
+//     setTimeout(() => {
+//       dispatch(toggleTodo(id));
+//     }, 1000)
+//   }
+// }
 
 const VisibleTodoList = connect(
   mapStateToProps,
-  mapDispatchToProps
+  // mapDispatchToProps,
+  {
+    onTodoClick: id => toggleTodo(id)
+  }
 )(TodoList);
 
 

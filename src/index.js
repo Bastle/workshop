@@ -4,46 +4,33 @@
 
 import './style/index.css';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import todoApp from './reducers/reducer';
+// import store from './store';
+import { Provider } from '../utils/myReactRedux';
+import store from './store/myStore';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import ReduxApp from './page/redux';
 import ContextApp from './page/context';
+import { HashRouter, Route, Link, Switch } from 'react-router-dom';
 
-let store = createStore(todoApp);
-
-class App extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      type: 'context'
-    }
-    this.changeUi = this.changeUi.bind(this);
-  }
-  changeUi(type){
-    this.setState({type});
-  }
-  render(){
-    console.log(this.state.type);
-    return (
-      <div>
+const App = props => {
+  console.log(this.state.type);
+  return (
+    <Provider store={store}>
+      <HashRouter>
         <div className="button-list">
-          <button onClick={() => this.changeUi('context')}>切换到context</button>
-          <button onClick={() => this.changeUi('redux')}>切换到redux</button>
+          <Link to='/'>
+            <button>切换到context</button>
+          </Link>
+          <Link to='/redux'>
+            <button>切换到redux</button>
+          </Link>
         </div>
-        {
-          this.state.type === 'context' && <ContextApp />
-        }
-        {
-          this.state.type === 'redux' && 
-            <Provider store={store}>
-              <ReduxApp />
-            </Provider>
-        }
-      </div>
-    )
-  }
+        <Route exact path="/" component={ContextApp} />
+        <Route exact path="/redux" component={ReduxApp} />
+      </HashRouter>
+    </Provider>
+  )
 }
 
 ReactDOM.render(

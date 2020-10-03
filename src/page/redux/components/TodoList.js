@@ -4,11 +4,11 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = ({ todos, onTodoClick}) => {
+const TodoList = ({ todos, onTodoClick, name}) => {
   return (
     <ul>
       { todos.map((todo,index) => (
-        <Todo key={index} onClick={() => onTodoClick(index)} {...todo} />
+        <Todo key={index} onClick={() => onTodoClick(index)} name={name} {...todo} />
       ))}
     </ul>
   )

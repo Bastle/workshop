@@ -3,7 +3,8 @@
  */
 import React from 'react';
 
-const Todo = ({ onClick, completed, text}) => {
+const Todo = ({ onClick, completed, hide, text, name, }) => {
+  if(hide) return null;
   return (
     <li
       onClick={onClick}
@@ -11,7 +12,7 @@ const Todo = ({ onClick, completed, text}) => {
         textDecoration: completed ? 'line-through' : 'none'
       }}
     >
-      {text}
+      {name + text}
     </li>
   )
 

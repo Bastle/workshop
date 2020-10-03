@@ -6,9 +6,6 @@ import { VisibilityFilters, ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from 
 
 const { SHOW_ALL } = VisibilityFilters;
 
-
-
-
 function todos(state = [], action){
   switch(action.type){
     case ADD_TODO:
@@ -26,7 +23,6 @@ function todos(state = [], action){
             completed: !todo.completed
           })
         }
-
         return todo;
       })
     default:
@@ -44,53 +40,9 @@ function visibilityFilter(state = SHOW_ALL, action){
 }
 
 
-const todoApp = combineReducers({
+const todoAppReducers = combineReducers({
   visibilityFilter,
   todos
 })
 
-// const initialState = {
-//   visibilityFilter: VisibilityFilters.SHOW_ALL,
-//   todos: []
-// }
-
-// function todoApp(state = initialState, action){
-//   switch(action.type){
-//     case SET_VISIBILITY_FILTER:
-//       return Object.assign({}, state, {
-//         visibilityFilter: action.filter
-//       });
-//     case ADD_TODO:
-//       return Object.assign({}, state, {
-//         todos: [
-//           ...state.todos,
-//           {
-//             text: action.text,
-//             completed: false
-//           }
-//         ]
-//       });
-//     case TOGGLE_TODO:
-//       return Object.assign({}, state, {
-//         todos: state.todos.map(todo=>{
-//           if(todo.index === action.index){
-//             return Object.assign({}, todo, {
-//               completed: !todo.completed
-//             })
-//           }
-//
-//           return todo;
-//         })
-//       })
-//     default:
-//       return state;
-//   }
-// }
-// function todoApp(state = {}, action){
-//   return {
-//     visibilityFilter: visibilityFilter(state.visibilityFilter,action),
-//     todos: todos(state.todos, action)
-//   }
-// }
-
-export default todoApp;
+export default todoAppReducers;

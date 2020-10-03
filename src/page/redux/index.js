@@ -12,7 +12,7 @@ const ReduxApp = () => {
   return (
     <div>
       <AddTodo/>
-      <VisibleTodoList/>
+      <VisibleTodoList name="my todo list"/>
       <Footer/>
     </div>
   )
