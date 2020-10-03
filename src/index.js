@@ -9,6 +9,7 @@ import { Provider } from '../utils/myReactRedux';
 import store from './store/myStore';
 import ReactDOM from 'react-dom';
 import React from 'react';
+<<<<<<< HEAD
 import ReduxApp from './page/redux';
 import ContextApp from './page/context';
 import { HashRouter, Route, Link, Switch } from 'react-router-dom';
@@ -35,5 +36,25 @@ const App = props => {
 
 ReactDOM.render(
   <App />,
+=======
+import App from './components/App';
+import MouseTracker from './page/mouseTracker';
+import Cat from './page/mouseTracker/Cat';
+import AddNum from './page/addNum';
+import Example from './page/example';
+let store = createStore(todoApp);
+
+
+
+ReactDOM.render(
+  <Provider store={store}>
+    <div>
+      <App />
+      {/* <MouseTracker render={mouse => <Cat mouse={mouse} />} /> */}
+      <AddNum />
+      <Example />
+    </div>
+  </Provider>,
+>>>>>>> 5b8405aacba9078af3aef20010012e2529f71bcb
   document.getElementById('root')
 );
