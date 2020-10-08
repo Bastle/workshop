@@ -38,11 +38,28 @@ function visibilityFilter(state = SHOW_ALL, action){
       return state
   }
 }
+const initialLogin = {
+  isLogin: false,
+  userName: null
+}
+function loginReducer(state = initialLogin, action){
+  switch (action.type) {
+    case 'GET_USER_INFO':
+      return Object.assign({}, state, {isLogin: false, name: null});
+    case 'LOGIN_SUCCESS':
+      return Object.assign({}, state, {isLogin: true, name: action.preload.name});
+    case 'LOGIN_FAILED': 
+      return Object.assign({}, state, {isLogin: false});
+    default:
+      return state;
+  }
+}
 
 
 const todoAppReducers = combineReducers({
   visibilityFilter,
-  todos
+  todos,
+  user: loginReducer
 })
 
 export default todoAppReducers;

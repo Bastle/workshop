@@ -4,21 +4,28 @@
 
 import './style/index.css';
 import { Provider } from 'react-redux';
-// import store from './store';
-import { Provider } from '../utils/myReactRedux';
-import store from './store/myStore';
+import store from './store';
+// import { Provider } from '../utils/myReactRedux';
+// import store from './store/myStore';
 import ReactDOM from 'react-dom';
 import React from 'react';
-<<<<<<< HEAD
+import AddNum from './page/addNum';
 import ReduxApp from './page/redux';
+import PrivateRoute from './page/privateRoute'
 import ContextApp from './page/context';
-import { HashRouter, Route, Link, Switch } from 'react-router-dom';
+import Login from './page/loginPage';
+import { 
+  BrowserRouter, 
+  HashRouter, 
+  Switch, 
+  Route, 
+  Link 
+} from 'react-router-dom';
 
 const App = props => {
-  console.log(this.state.type);
   return (
     <Provider store={store}>
-      <HashRouter>
+      {/* <HashRouter>
         <div className="button-list">
           <Link to='/'>
             <button>切换到context</button>
@@ -29,32 +36,31 @@ const App = props => {
         </div>
         <Route exact path="/" component={ContextApp} />
         <Route exact path="/redux" component={ReduxApp} />
-      </HashRouter>
+      </HashRouter> */}
+      <BrowserRouter>
+      <Link to='/'>
+            <button>切换到context</button>
+          </Link>
+          <Link to='/redux'>
+            <button>切换到redux</button>
+          </Link>
+          <Link to='/search'>
+            <button>切换到addNum</button>
+          </Link>
+        <Switch>
+          <Route exact path="/" component={ContextApp} />
+          <Route exact path="/redux" component={ReduxApp} />
+          <Route exact path="/login" component={Login} />
+          <PrivateRoute path="/search" component={AddNum}/>
+          {/* <Route exact path="/search/:id" component={AddNum} /> */}
+        </Switch>
+        
+      </BrowserRouter>
     </Provider>
   )
 }
 
 ReactDOM.render(
   <App />,
-=======
-import App from './components/App';
-import MouseTracker from './page/mouseTracker';
-import Cat from './page/mouseTracker/Cat';
-import AddNum from './page/addNum';
-import Example from './page/example';
-let store = createStore(todoApp);
-
-
-
-ReactDOM.render(
-  <Provider store={store}>
-    <div>
-      <App />
-      {/* <MouseTracker render={mouse => <Cat mouse={mouse} />} /> */}
-      <AddNum />
-      <Example />
-    </div>
-  </Provider>,
->>>>>>> 5b8405aacba9078af3aef20010012e2529f71bcb
   document.getElementById('root')
 );

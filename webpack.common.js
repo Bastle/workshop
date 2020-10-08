@@ -5,7 +5,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackBar = require('webpackbar');
+// const WebpackBar = require('webpackbar');
 const webpack = require('webpack');
 
 
@@ -22,7 +22,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html'
     }),
-    new WebpackBar()
+    // new WebpackBar()
   ],
   module:{
     rules:[

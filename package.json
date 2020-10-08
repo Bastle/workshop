@@ -19,15 +19,10 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-redux": "^7.1.0",
-<<<<<<< HEAD
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
-=======
-    "redux": "^4.0.4",
-    "webpackbar": "^4.0.0"
->>>>>>> 5b8405aacba9078af3aef20010012e2529f71bcb
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

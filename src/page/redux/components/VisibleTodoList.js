@@ -2,7 +2,7 @@
  * Created by cyb on 2019/8/16.
  */
 import { connect } from 'react-redux';
-import { toggleTodo } from '../../../action/action';
+import { toggleTodo, TOGGLE_TODO } from '../../../store/action/action';
 import TodoList from './TodoList';
 
 
@@ -10,7 +10,10 @@ import TodoList from './TodoList';
 function getTodos(todos, filter){
   switch (filter){
     case 'SHOW_ALL':
-      return todos;
+      return todos.map(t => {
+        t.hide = false;
+        return t;
+      });
     case 'SHOW_ACTIVE':
       return todos.map(t => {
         t.hide = t.completed;
@@ -50,10 +53,9 @@ const mapDispatchToProps = dispatch => {
 const VisibleTodoList = connect(
   mapStateToProps,
   // mapDispatchToProps,
-  {
-    onTodoClick: id => toggleTodo(id)
-  }
+  // {
+  //   onTodoClick: id => toggleTodo(id)
+  // }
 )(TodoList);
-
 
 export default VisibleTodoList;

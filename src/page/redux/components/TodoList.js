@@ -3,16 +3,25 @@
  */
 import React from 'react';
 import Todo from './Todo';
+import { toggleTodo } from '../../../store/action/action';
 
-const TodoList = ({ todos, onTodoClick, name}) => {
+const TodoList = ({ todos, name, dispatch}) => {
+  function onTodoClick(id) {
+    console.log(123);
+    dispatch(toggleTodo(id));
+  }
   return (
     <ul>
       { todos.map((todo,index) => (
-        <Todo key={index} onClick={() => onTodoClick(index)} name={name} {...todo} />
+        <Todo key={index} onClick={() => {
+          onTodoClick(index)}
+        } name={name} {...todo} />
       ))}
     </ul>
   )
 }
+
+
 
 
 export default TodoList;
