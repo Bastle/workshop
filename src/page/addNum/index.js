@@ -1,23 +1,35 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-const AddNum = (props) => {
-  const [count, setCount] = useState(0);
-  console.log(props)
-  function add1(){
-    setCount((count) => count + 1);
-  }
+const AddNum = props => {
+  console.log('addOne props --------> ', props);
+  const {name, match, addOne, count, minusOne, logout } = props;
   return (
     <div>
       <div>{count}</div>
-      <p>search：{props.match.params.id}</p>
-      <p>search：{props.name || 'jack'}</p>
-      <button onClick={add1}>add1</button>
+      <p>search：{match.params.id}</p>
+      <p>search：{name || 'default'}</p>
+      <button onClick={addOne}>add1</button>
+      <button onClick={minusOne}>minus1</button>
+      <button onClick={logout}>退出登录</button>
     </div>
   )
 }
 
-const ConnectedAddNum = connect(
-  state => ({name: state.user.name})
+export default connect(
+  state => ({
+    name: state.user.name,
+    count: state.count
+  }),
+  {
+    addOne: () => ({
+      type: 'ADD'
+    }),
+    minusOne: () => ({
+      type: 'MINUS'
+    }),
+    logout: () => ({
+      type: 'LOGOUT'
+    })
+  }
 )(AddNum);
-export default ConnectedAddNum;

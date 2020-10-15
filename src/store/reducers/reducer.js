@@ -50,6 +50,19 @@ function loginReducer(state = initialLogin, action){
       return Object.assign({}, state, {isLogin: true, name: action.preload.name});
     case 'LOGIN_FAILED': 
       return Object.assign({}, state, {isLogin: false});
+    case 'LOGOUT': 
+      return Object.assign({}, state, {isLogin: false, name: null});
+    default:
+      return state;
+  }
+}
+
+function count(state = 0, action){
+  switch (action.type) {
+    case 'ADD':
+      return state + 1;
+    case 'MINUS':
+      return state - 1;
     default:
       return state;
   }
@@ -59,7 +72,8 @@ function loginReducer(state = initialLogin, action){
 const todoAppReducers = combineReducers({
   visibilityFilter,
   todos,
-  user: loginReducer
+  user: loginReducer,
+  count
 })
 
 export default todoAppReducers;

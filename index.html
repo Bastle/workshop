@@ -6,45 +6,5 @@
 </head>
 <body>
   <div id="root"></div>
-  <script>
-    Array.prototype.filter = function(func){
-      let arr =[];
-      this.map((item, index) => {
-        if(func(item, index)){
-          arr.push(item)
-        }
-      })
-      return arr;
-    }
-  </script>
-  <script>
-    function fetchData(){}
-    function renderPage(n){
-      Promise(function(resolve, reject){
-        let resArr = [];
-        for(let i = 0; i < n; i++){
-          fetchData(x).then(res => {
-            resArr.push(res);
-            if(resArr.length.length > 3){
-              resolve(resArr)
-            }
-          })
-        }
-      })
-    }
-    function bubbleSort(arr){
-      let tem;
-      for(let i = 0, len = arr.length; i < len; i++){
-        for(let j = 0; j < len - i; j ++){
-          if(arr[j] > arr[j + 1]){
-            tem = arr[j];
-            arr[j] = arr[j+1];
-            arr[j+1] = tem;
-          }
-        }
-      }
-      return arr;
-    }
-  </script>
 </body>
 </html>

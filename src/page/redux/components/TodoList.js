@@ -7,7 +7,6 @@ import { toggleTodo } from '../../../store/action/action';
 
 const TodoList = ({ todos, name, dispatch}) => {
   function onTodoClick(id) {
-    console.log(123);
     dispatch(toggleTodo(id));
   }
   return (
@@ -20,8 +19,5 @@ const TodoList = ({ todos, name, dispatch}) => {
     </ul>
   )
 }
-
-
-
 
 export default TodoList;
