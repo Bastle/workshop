@@ -39,10 +39,11 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
+        test: /\.(css|less)$/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
+          'less-loader'
         ]
       },{
         test: /\.(png|jpg|svg|gif)$/,
@@ -58,11 +59,6 @@ module.exports = {
         test: /\.(csv|tsv)$/,
         use: [
           'csv-loader'
-        ]
-      },{
-        test: /\.xml$/,
-        use: [
-          'xml-loader'
         ]
       }
     ]

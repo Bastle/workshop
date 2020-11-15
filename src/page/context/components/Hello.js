@@ -16,6 +16,6 @@ import Context from '../context'
 export default function Hello(){
   const { name, toggleName } = useContext(Context);
   return (
-    <div onClick={toggleName}>{name} is name！</div> 
+    <div onClick={toggleName}>{name} isisisiis name！</div> 
   )
 }
