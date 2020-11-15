@@ -11,7 +11,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import AddNum from './page/addNum';
 import ReduxApp from './page/redux';
-import PrivateRoute from './page/privateRoute'
+import PrivateRoute from './router/privateRoute'
 import ContextApp from './page/context';
 import Login from './page/loginPage';
 import Cart from './page/cart';

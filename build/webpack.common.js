@@ -5,24 +5,23 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const WebpackBar = require('webpackbar');
-const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 
-
+console.log('----------------------------->>>>>')
 module.exports = {
   entry: {
-    app: './src/index.js'
+    app: path.join(__dirname, '../src/index.js')
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, '../dist'),
     publicPath: '/'
   },
   plugins:[
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: path.join(__dirname, '../index.html')
     }),
-    // new WebpackBar()
+    new WebpackBar()
   ],
   module:{
     rules:[

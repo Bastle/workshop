@@ -1,5 +1,6 @@
 import React from 'react';
-import { Checkbox } from 'antd';
+import Checkbox from 'antd/es/checkbox';
+import 'antd/es/checkbox/style/index.css';
 
 function areEqual(prevProps, nextProps) {
   return prevProps.checked === nextProps.checked;
