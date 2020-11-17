@@ -27,7 +27,7 @@ module.exports = {
     rules:[
       {
         test: /\.js|jsx$/,
-        exclude: /node_modules/,
+        include: path.resolve(__dirname, '../src'),
         use: [
           {
             loader: 'babel-loader',
@@ -46,20 +46,26 @@ module.exports = {
         ]
       },{
         test: /\.(png|jpg|svg|gif)$/,
+        include: path.resolve(__dirname, '../src'),
         use: [
           'file-loader'
         ]
       },{
         test: /\.(woff|woff2|eot|ttf|otf)$/,
+        include: path.resolve(__dirname, '../src'),
         use: [
           'file-loader'
         ]
       },{
         test: /\.(csv|tsv)$/,
+        include: path.resolve(__dirname, '../src'),
         use: [
           'csv-loader'
         ]
       }
     ]
+  },
+  watchOptions: {
+    ignored: /node_modules/
   }
 }
