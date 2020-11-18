@@ -4,3 +4,4 @@ deploy/
 .idea/
 deployed/
 dist/
+yarn-error.log

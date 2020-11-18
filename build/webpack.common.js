@@ -15,7 +15,8 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.join(__dirname, '../dist'),
-    publicPath: '/'
+    publicPath: '/',
+    chunkFilename: '[name]_[chunkhash:8]_chunk.js'
   },
   plugins:[
     new HtmlWebpackPlugin({
@@ -27,15 +28,7 @@ module.exports = {
     rules:[
       {
         test: /\.js|jsx$/,
-        include: path.resolve(__dirname, '../src'),
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['react', 'es2015']
-            }
-          }
-        ]
+        use: ['babel-loader?cacheDirectory=true']
       },
       {
         test: /\.(css|less)$/,
