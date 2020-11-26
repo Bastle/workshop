@@ -6,6 +6,7 @@ const Hooks = lazy(() => import(/*webpackChunkName: "hooks" */ '../page/hooks'))
 const ReduxApp = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/redux'));
 const Cart = lazy(() => import(/*webpackChunkName: "cart" */ '../page/cart'));
 const Login = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/loginPage'));
+const AddNum = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/addNum'));
 
 const LazyComponent = Com => 
     props => (
@@ -17,21 +18,21 @@ const LazyComponent = Com =>
 const config = [
     {
         path: '/',
-        titile: '切换到 context',
+        title: '切换到 context',
         component: LazyComponent(ContextApp),
         exact: true,
         isPrivate: false
     },
     {
         path: '/redux',
-        titile: '切换到 redux',
+        title: '切换到 redux',
         compPath: '',
         component: LazyComponent(ReduxApp),
         exact: true
     },
     {
         path: '/cart',
-        titile: '切换到 cart',
+        title: '切换到 cart',
         component: LazyComponent(Cart),
         exact: true
     },
@@ -41,16 +42,15 @@ const config = [
         component: LazyComponent(Hooks),
         exact: true
     },
-    // {
-    //     path: '/search',
-    //     title: '切换到 add number',
-    //     component: () => getComponent(Hooks),
-    //     exact: true,
-    //     isPrivate: true
-    // },
+    {
+        path: '/search',
+        title: '切换到 add number',
+        component: LazyComponent(AddNum),
+        exact: true,
+        isPrivate: true
+    },
     {
         path: '/login',
-        title: '切换到 add number',
         component: LazyComponent(Login),
         exact: true,
     }

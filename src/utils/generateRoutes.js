@@ -11,7 +11,7 @@ export const generateRoutes = config =>
         ...rest
     }, index) => {
         if(isPrivate){
-            return <PrivateRoute path={path} component={component} exact={exact} {...rest} />
+            return <PrivateRoute key={path} path={path} component={component} exact={exact} {...rest} />
         }
-        return <Route key={index} path={path} component={component} exact={exact} {...rest} />
+        return <Route key={path} path={path} component={component} exact={exact} {...rest} />
     })

@@ -93,8 +93,6 @@ export const useChecked = (dataSource = [], {key = 'id'} = {}) => {
 
   const checkedAll = dataSource.length && (dataSource.length === filterChecked().length);
 
-  
-
   return {
     checkedMap,
     onCheckedAllChange,

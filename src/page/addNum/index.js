@@ -9,9 +9,9 @@ const AddNum = props => {
       <div>{count}</div>
       <p>search：{match.params.id}</p>
       <p>search：{name || 'default'}</p>
-      <button onClick={addOne}>add1</button>
-      <button onClick={minusOne}>minus1</button>
-      <button onClick={logout}>退出登录</button>
+      <button key={'add'} onClick={addOne}>add1</button>
+      <button key={'minus'} onClick={minusOne}>minus1</button>
+      <button key={'logout'} onClick={logout}>退出登录</button>
     </div>
   )
 }
