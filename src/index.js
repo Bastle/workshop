@@ -10,13 +10,11 @@ import store from './store';
 import ReactDOM from 'react-dom';
 import React, { lazy, Suspense } from 'react';
 import AddNum from './page/addNum';
-// import ReduxApp from './page/redux';
 import PrivateRoute from './router/privateRoute'
 import ContextApp from './page/context';
 import Login from './page/loginPage';
-// import Cart from './page/cart';
 import Fp from './page/fp';
-// import Hooks from './page/hooks';
+import route from './router';
 import { 
   BrowserRouter, 
   Switch, 
@@ -24,18 +22,6 @@ import {
   Link 
 } from 'react-router-dom';
 
-
-const Hooks = lazy(() => import(/*webpackChunkName: "hooks" */ './page/hooks'));
-const ReduxApp = lazy(() => import(/*webpackChunkName: "reduxApp" */ './page/redux'));
-const Cart = lazy(() => import(/*webpackChunkName: "cart" */ './page/cart'));
-
-const getComponent = Com => {
-  return (
-    <Suspense fallback={<div>loading...</div>}>
-      <Com />
-    </Suspense>
-  )
-}
 const App = props => {
   return (
     <Provider store={store}>
@@ -59,13 +45,15 @@ const App = props => {
             <button>切换到 hooks</button>
           </Link>
         <Switch>
-          <Route exact path="/" component={ContextApp} />
+          {route}
+          {/* <Route exact path="/" component={ContextApp} />
           <Route exact path="/redux" component={() => getComponent(ReduxApp)} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/cart" component={() => getComponent(Cart)} />
           <Route exact path="/fp" component={Fp} />
-          <Route exact path="/hooks" component={() => getComponent(Hooks)} />
+          <Route exact path="/hooks" component={() => getComponent(Hooks)} /> */}
           <PrivateRoute path="/search" component={AddNum}/>
+          {/* <Route exact path="/login" component={Login}/> */}
           {/* <Route exact path="/search/:id" component={AddNum} /> */}
         </Switch>
       </BrowserRouter>
