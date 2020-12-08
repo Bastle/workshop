@@ -1,5 +1,6 @@
 
 import React, { lazy, Suspense } from 'react';
+import Doc from '../page/doc';
 
 const ContextApp = lazy(() => import(/*webpackChunkName: "contextApp" */ '../page/context'));
 const Hooks = lazy(() => import(/*webpackChunkName: "hooks" */ '../page/hooks'));
@@ -7,6 +8,7 @@ const ReduxApp = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/re
 const Cart = lazy(() => import(/*webpackChunkName: "cart" */ '../page/cart'));
 const Login = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/loginPage'));
 const AddNum = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/addNum'));
+const RteDemo = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/rteDemo'));
 
 const LazyComponent = Com => 
     props => (
@@ -48,6 +50,18 @@ const config = [
         component: LazyComponent(AddNum),
         exact: true,
         isPrivate: true
+    },
+    {
+        path: '/rte',
+        title: '切换到 rich text editor',
+        component: LazyComponent(RteDemo),
+        exact: true
+    },
+    {
+        path: '/doc',
+        title: '切换到 doc',
+        component: Doc,
+        exact: true
     },
     {
         path: '/login',
