@@ -1,0 +1,31 @@
+.transfer-box-selected-item {
+  height: 26px;
+  background: #f7f8fe;
+  border-radius: 2px;
+  border: 1px solid #e9e8ed;
+  margin-bottom: 8px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+
+  .transfer-box-selected-item-title {
+    width: 90%;
+    display: flex;
+    span:first-child {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .transfer-box-selected-item-delete {
+    color: #b6bfca;
+  }
+  &:hover .transfer-box-selected-item-delete {
+    color: #215fff;
+  }
+}
