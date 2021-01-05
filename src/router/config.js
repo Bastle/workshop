@@ -9,6 +9,7 @@ const Cart = lazy(() => import(/*webpackChunkName: "cart" */ '../page/cart'));
 const Login = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/loginPage'));
 const AddNum = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/addNum'));
 const RteDemo = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/rteDemo'));
+const MyTransfer = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/transfer'));
 
 const LazyComponent = Com => 
     props => (
@@ -64,9 +65,16 @@ const config = [
         exact: true
     },
     {
+        path: '/transfer',
+        title: '切换到 transfer',
+        component: LazyComponent(MyTransfer),
+        exact: true
+    },
+    {
         path: '/login',
         component: LazyComponent(Login),
         exact: true,
+        hideEntry: true
     }
 ]
 

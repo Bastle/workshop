@@ -18,8 +18,8 @@ const App = (props) => {
     <Provider store={store}>
       <BrowserRouter>
         {config.map(
-          ({ path, title }) =>
-            title && (
+          ({ path, title, hideEntry }) =>
+            !hideEntry && (
               <Link key={path} to={path}>
                 <button>{title}</button>
               </Link>

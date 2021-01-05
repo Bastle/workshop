@@ -92,6 +92,7 @@ export const useChecked = (dataSource = [], {key = 'id'} = {}) => {
   }, [dataSource]);
 
   const checkedAll = dataSource.length && (dataSource.length === filterChecked().length);
+  const indeterminate = dataSource.length && (filterChecked().length > 0) &&  (dataSource.length !== filterChecked().length);
 
   return {
     checkedMap,
@@ -100,6 +101,7 @@ export const useChecked = (dataSource = [], {key = 'id'} = {}) => {
     onSetCheckedMap,
     filterChecked,
     checkedAll,
+    indeterminate,
     dispatch
   }
 }

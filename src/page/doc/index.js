@@ -1,5 +1,5 @@
 import React from 'react';
-const Doc = props => {
+const Doc = () => {
     const docs = [
         {
             h1: '标题1',
