@@ -10,6 +10,7 @@ const Login = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/login
 const AddNum = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/addNum'));
 const RteDemo = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/rteDemo'));
 const MyTransfer = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/transfer'));
+const ReadExcel = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/readExcel'))
 
 const LazyComponent = Com => 
     props => (
@@ -75,6 +76,12 @@ const config = [
         component: LazyComponent(Login),
         exact: true,
         hideEntry: true
+    },
+    {
+        path:'/read',
+        title: '切换到 read',
+        component: LazyComponent(ReadExcel),
+        exact: true
     }
 ]
 
