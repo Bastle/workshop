@@ -28,7 +28,7 @@ module.exports = {
     rules:[
       {
         test: /\.js|jsx$/,
-        use: ['babel-loader?cacheDirectory=true']
+        use: ['babel-loader?cacheDirectory=true'],
       },
       {
         test: /\.(css|less)$/,
@@ -57,6 +57,10 @@ module.exports = {
         ]
       }
     ]
+  },
+  resolve: {
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: [".ts", ".tsx", ".js", ".json"] 
   },
   watchOptions: {
     ignored: /node_modules/

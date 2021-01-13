@@ -10,6 +10,7 @@ import React from "react";
 import route from "./router";
 import config from "./router/config";
 import { BrowserRouter, Switch, Link } from "react-router-dom";
+import 'antd/dist/antd.css'; 
 
 console.log("config: ", config);
 

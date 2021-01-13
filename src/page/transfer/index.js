@@ -1,6 +1,5 @@
 import React from 'react'
 import { Transfer, Table, Tabs } from 'antd'
-import 'antd/dist/antd.css';
 
 const { TabPane } = Tabs
 const dataSource = [
