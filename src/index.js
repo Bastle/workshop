@@ -10,14 +10,28 @@ import React from "react";
 import route from "./router";
 import config from "./router/config";
 import { BrowserRouter, Switch, Link } from "react-router-dom";
+import { Modal } from 'antd'
 import 'antd/dist/antd.css'; 
 
 console.log("config: ", config);
 
+const getConfirmation = (message, callback) => {
+  console.log(1111)
+  Modal.confirm({
+    title: message,
+    onCancel: () => {
+      callback(false);
+    },
+    onOk: () => {
+      callback(true);
+    }
+  });
+};
+
 const App = (props) => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter getUserConfirmation={getConfirmation}>
         {config.map(
           ({ path, title, hideEntry }) =>
             !hideEntry && (

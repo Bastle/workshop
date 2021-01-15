@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { Prompt } from 'react-router-dom'
 const Doc = () => {
     const docs = [
         {
@@ -24,6 +25,7 @@ const Doc = () => {
     ]
     return (
         <div>
+            <Prompt when={true} message={'11111'} />
             {
                 docs.map(({h1, id, content}) => (
                     <div>
@@ -35,4 +37,5 @@ const Doc = () => {
         </div>
     )
 }
+
 export default Doc;

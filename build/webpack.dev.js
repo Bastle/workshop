@@ -10,9 +10,7 @@ module.exports = merge(common, {
   // devtool: 'source-map',
   devtool: 'eval',
   
-  // devServer: {
-  //   contentBase: './dist'
-  // }
+
   devServer: {
     historyApiFallback: true,
     hot: true
