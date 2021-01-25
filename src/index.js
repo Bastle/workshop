@@ -12,11 +12,11 @@ import config from "./router/config";
 import { BrowserRouter, Switch, Link } from "react-router-dom";
 import { Modal } from 'antd'
 import 'antd/dist/antd.css'; 
+import useFps from "./hooks/useFps";
 
 console.log("config: ", config);
 
 const getConfirmation = (message, callback) => {
-  console.log(1111)
   Modal.confirm({
     title: message,
     onCancel: () => {
@@ -28,8 +28,13 @@ const getConfirmation = (message, callback) => {
   });
 };
 
-const App = (props) => {
+const App = () => {
+  const [fps, stop, start] = useFps()
   return (
+    <>
+    <p>{fps}</p>
+    <button onClick={stop}>stop</button>
+    <button onClick={start}>start</button>
     <Provider store={store}>
       <BrowserRouter getUserConfirmation={getConfirmation}>
         {config.map(
@@ -43,6 +48,7 @@ const App = (props) => {
         <Switch>{route}</Switch>
       </BrowserRouter>
     </Provider>
+    </>
   );
 };
 

@@ -16,7 +16,7 @@ const WangEditor = props => {
     });
     editor.current.create();
     editor.current.txt.html(props.value)
-  })
+  }, [])
   return (
     <div id="editor-root"></div>
   )

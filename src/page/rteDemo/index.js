@@ -11,13 +11,6 @@ const RteDemo = () => {
   const editor = useRef(null);
   const [form] = Form.useForm();
 
-  useEffect(() => {
-    editor.current = new E("#rte-box");
-    editor.current.config.colors = ["#000000", "#eeece0", "#1c487f", "#4d80bf"];
-    editor.current.config.showFullScreen = false;
-    editor.current.config.onchange = console.log;
-    editor.current.create();
-  }, []);
   const showText = () => {
     console.log(editor.current.txt.text());
     console.log(editor.current.txt.html());

@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 const ReduxApp = () => {
   return (
     <div>
+      <button onClick={stop}>stop</button>
       <AddTodo/>
       <VisibleTodoList name="my todo list"/>
       <Footer/>
