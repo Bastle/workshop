@@ -1,0 +1,78 @@
+.flow-up-wrap {
+  padding: 40px;
+  ul {
+    height: 2000px;
+    li {
+      width: 100px;
+      height: 40px;
+      margin-bottom: 20px;
+      background-color: lightblue;
+      position: relative;
+      transition: all 1s linear;
+      animation: flowUp 1s ease;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        left: 0;
+        height: 100%;
+        transition: all 1s linear;
+        background-color: yellow;
+      }
+      &:hover {
+        background-color: green;
+      }
+    }
+  }
+  .active {
+    &::before {
+      animation: changeWidth 3s linear;
+    }
+  }
+  .show {
+    background-color: yellow;
+  }
+  .box {
+    width: 200px;
+    height: 50px;
+    background-color: green;
+  }
+  .item-enter {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  .item-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s ease-in;
+  }
+  .item-exit {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  .item-exit-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s ease-in;
+  }
+}
+
+@keyframes changeWidth {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes flowUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

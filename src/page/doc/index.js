@@ -3,37 +3,49 @@ import { Prompt } from 'react-router-dom'
 const Doc = () => {
     const docs = [
         {
-            h1: '标题1',
+            h1: 1,
             id: 'title1',
             content: '这是内容4这是内容4'
         },
         {
-            h1: '标题2',
+            h1: 2,
             id: 'title2',
             content: '这是内容4这是内容4'
         },
         {
-            h1: '标题3',
+            h1: 1,
             id: 'title3',
             content: '这是内容3这是内容3'
         },
         {
-            h1: '标题4',
+            h1: 3,
             id: 'title4',
             content: '这是内容4这是内容4'
         }
     ]
+    const dealWithDocs = list => {
+        let titleList = []
+        list.forEach(item => {
+            if(!titleList.includes(item.h1)){
+                titleList.push(item.h1)
+            }
+        })
+        console.log('titleList: ', titleList);
+        let itemList = titleList.map(item => ({title: item, list: []}))
+        list.forEach(item => {
+            itemList.forEach((subItem, index) => {
+                if(item.h1 === subItem.title){
+                    itemList[index].list.push(item)
+                }
+            })
+        })
+        console.log('itemList: ', itemList);
+        return itemList
+    }
     return (
         <div>
             <Prompt when={true} message={'11111'} />
-            {
-                docs.map(({h1, id, content}) => (
-                    <div>
-                        <h1 id={id}>{h1}</h1>
-                        {content.split('').map(item => <p>{item}</p>)}
-                    </div>
-                ))
-            }
+            {JSON.stringify(dealWithDocs(docs))}
         </div>
     )
 }

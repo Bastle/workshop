@@ -29,12 +29,12 @@ const getConfirmation = (message, callback) => {
 };
 
 const App = () => {
-  const [fps, stop, start] = useFps()
+  // const [fps, stop, start] = useFps()
   return (
     <>
-    <p>{fps}</p>
-    <button onClick={stop}>stop</button>
-    <button onClick={start}>start</button>
+    {/* <p>{fps}</p> */}
+    {/* <button onClick={stop}>stop</button>
+    <button onClick={start}>start</button> */}
     <Provider store={store}>
       <BrowserRouter getUserConfirmation={getConfirmation}>
         {config.map(
