@@ -14,6 +14,36 @@ const Fp = () => {
     const hasSpace = match(/\s+/);
     const findSpace = filter(hasSpace)
     console.log(findSpace(['dad des', 'deaeefd', 'Hal le lu jah']));
+    const fakeIterator = () => {
+        const obj = {
+            data: ['hello', 'world'],
+            [Symbol.iterator](){
+                const self = this;
+                let index = 0
+                return {
+                    next(){
+                        if(index < self.data.length){
+                            return {
+                                value: self.data[index++],
+                                done: false
+                            }
+                        } else {
+                            return {
+                                value: undefined,
+                                done: true
+                            }
+                        }   
+                    }
+                } 
+            }
+        }
+        for(let o of obj){
+            console.log(o)
+        }
+
+        console.log(Array.from(obj))
+        console.log(Object.fromEntries(new URLSearchParams({name: 'jack'})))
+    }
     useEffect(() => {
         const p = () => new Promise((resolve, reject) => {
             const ran = Math.random() * 10;
@@ -23,9 +53,11 @@ const Fp = () => {
                 reject(0)
             }
         })
+        fakeIterator()
         console.log(123)
         retry(p, 100).then(res => {alert(res)});
     }, [])
+    
     return (
         <div>
             functional programming
