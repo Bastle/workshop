@@ -1,11 +1,10 @@
 /**
  * Created by cyb on 2019/3/14.
  */
-const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const WebpackBundleAnalyzer = require('webpack-bundle-analyzer');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 module.exports = merge(common, {
@@ -13,6 +12,6 @@ module.exports = merge(common, {
   devtool: 'source-map',
   plugins: [
     new CleanWebpackPlugin(),
-    new WebpackBundleAnalyzer.BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin()
   ]
 })

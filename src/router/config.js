@@ -7,12 +7,12 @@ const Hooks = lazy(() => import(/*webpackChunkName: "hooks" */ '../page/hooks'))
 const ReduxApp = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/redux'));
 const Cart = lazy(() => import(/*webpackChunkName: "cart" */ '../page/cart'));
 const Login = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/loginPage'));
-const AddNum = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/addNum'));
-const RteDemo = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/rteDemo'));
-const MyTransfer = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/transfer'));
-const ReadExcel = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/readExcel'))
-const FlowUp = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/flowUp'))
-const Fp = lazy(() => import(/*webpackChunkName: "reduxApp" */ '../page/fp'))
+const AddNum = lazy(() => import(/*webpackChunkName: "add" */ '../page/addNum'));
+const RteDemo = lazy(() => import(/*webpackChunkName: "rte" */ '../page/rteDemo'));
+const MyTransfer = lazy(() => import(/*webpackChunkName: "transfer" */ '../page/transfer'));
+const ReadExcel = lazy(() => import(/*webpackChunkName: "read" */ '../page/readExcel'))
+const FlowUp = lazy(() => import(/*webpackChunkName: "fu" */ '../page/flowUp'))
+const Fp = lazy(() => import(/*webpackChunkName: "fp" */ '../page/fp'))
 
 const LazyComponent = Com => 
     props => (

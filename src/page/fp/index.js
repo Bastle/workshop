@@ -54,8 +54,24 @@ const Fp = () => {
             }
         })
         fakeIterator()
+        const obj = new Proxy({}, {
+            get: function(target, propKey, receiver){
+                console.log(`getting ${propKey}!`)
+                console.log(target)
+                console.log(receiver)
+                return Reflect.get(target, propKey, receiver);
+            },
+            set: function(target, propKey,value, receiver){
+                console.log(`setting ${propKey}!`)
+                console.log(target)
+                console.log(receiver)
+                return Reflect.set(target, propKey, value, receiver);
+            }
+        })
+        obj.count = 1
+        ++obj.count
         console.log(123)
-        retry(p, 100).then(res => {alert(res)});
+        // retry(p, 100).then(res => {alert(res)});
     }, [])
     
     return (
