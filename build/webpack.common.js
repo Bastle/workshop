@@ -27,7 +27,7 @@ module.exports = {
   module:{
     rules:[
       {
-        test: /\.js|jsx$/,
+        test: /\.js|jsx|tsx$/,
         use: ['babel-loader?cacheDirectory=true'],
       },
       {
