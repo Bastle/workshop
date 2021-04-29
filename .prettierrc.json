@@ -1,1 +1,4 @@
-{}
+{
+  "semicolons": false,
+  "tabWidth": 4
+}
