@@ -1,18 +1,16 @@
 {
   "compilerOptions": {
-      "outDir": "./dist/",
-      "sourceMap": true,
-      "noImplicitAny": true,
-      "downlevelIteration": true,
-      "module": "commonjs",
-      "allowJs": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "target": "es5",
-      "jsx": "react",
-      "lib": ["DOM","ES2019"]
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "downlevelIteration": true,
+    "module": "commonjs",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "jsx": "react",
+    "lib": ["DOM", "ES2019"]
   },
-  "include": [
-      "./src/**/*"
-  ]
+  "include": ["./src/**/*"]
 }
