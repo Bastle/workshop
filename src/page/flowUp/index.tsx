@@ -16,6 +16,7 @@ const FlowUpContent = () => {
       console.log(11111111);
     });
     io.observe(box.current);
+    console.log(box.current.offsetTop);
     return () => {
       io.unobserve(box.current);
     };
@@ -57,7 +58,7 @@ const Item: FC<{ index: number }> = ({ index }) => {
       ref={(ref) => (itemRef.current = ref)}
       className={`item ${isShow ? "show" : ""}`}
     >
-      {index}
+      <div className="item-child">{index}</div>
     </li>
   );
 };
