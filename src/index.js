@@ -10,8 +10,8 @@ import React from "react";
 import route from "./router";
 import config from "./router/config";
 import { BrowserRouter, Switch, Link } from "react-router-dom";
-import { Modal } from 'antd'
-import 'antd/dist/antd.css'; 
+import { Modal } from "antd";
+import "antd/dist/antd.css";
 import useFps from "./hooks/useFps";
 
 console.log("config: ", config);
@@ -24,7 +24,7 @@ const getConfirmation = (message, callback) => {
     },
     onOk: () => {
       callback(true);
-    }
+    },
   });
 };
 
@@ -32,22 +32,21 @@ const App = () => {
   // const [fps, stop, start] = useFps()
   return (
     <>
-    {/* <p>{fps}</p> */}
-    {/* <button onClick={stop}>stop</button>
+      {/* <p>{fps}</p> */}
+      {/* <button onClick={stop}>stop</button>
     <button onClick={start}>start</button> */}
-    <Provider store={store}>
-      <BrowserRouter getUserConfirmation={getConfirmation}>
-        {config.map(
-          ({ path, title, hideEntry }) =>
-            !hideEntry && (
+      <Provider store={store}>
+        <BrowserRouter getUserConfirmation={getConfirmation}>
+          {config.map(({ path, title, hideEntry }) =>
+            hideEntry ? null : (
               <Link key={path} to={path}>
                 <button>{title}</button>
               </Link>
             )
-        )}
-        <Switch>{route}</Switch>
-      </BrowserRouter>
-    </Provider>
+          )}
+          <Switch>{route}</Switch>
+        </BrowserRouter>
+      </Provider>
     </>
   );
 };

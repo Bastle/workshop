@@ -29,6 +29,9 @@ const ReadExcel = lazy(() =>
 const FlowUp = lazy(() => import(/*webpackChunkName: "fu" */ "../page/flowUp"));
 const Fp = lazy(() => import(/*webpackChunkName: "fp" */ "../page/fp"));
 const Tabs = lazy(() => import(/*webpackChunkName: "fp" */ "../page/tabs"));
+const DynamicForm = lazy(() =>
+  import(/*webpackChunkName: "fp" */ "../page/form")
+);
 
 const LazyComponent = (Com) => (props) => (
   <Suspense fallback={<div>loading...</div>}>
@@ -116,6 +119,13 @@ const config = [
     path: "/tabs",
     title: "切换到 tabs",
     component: LazyComponent(Tabs),
+    exact: true,
+    hideEntry: true,
+  },
+  {
+    path: "/form",
+    title: "切换到 form",
+    component: LazyComponent(DynamicForm),
     exact: true,
   },
 ];
