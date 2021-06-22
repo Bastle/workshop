@@ -1,5 +1,13 @@
-import React, { Children, FC, ReactChild, useState } from "react";
+import React, {
+  Children,
+  FC,
+  ReactChild,
+  useState,
+  useRef,
+  useEffect,
+} from "react";
 import { Form, Input, Button, Table } from "antd";
+import { FormInstance } from "antd/lib/form";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 
 type DataType = { name: string; productId: string };
@@ -34,6 +42,7 @@ const DynamicForm: FC<{}> = () => {
           isEditable: col.isEditable,
           dataIndex: col.dataIndex,
           name: col.name,
+          form: form,
         }),
       };
     });
@@ -59,12 +68,66 @@ const DynamicForm: FC<{}> = () => {
   );
 };
 
-const EditableCell: FC<{ children: ReactChild; isEditable: boolean }> = ({
-  children,
-  isEditable,
-}) => {
+const EditableRow: FC<{ dataItem: Object }> = ({ dataItem }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (isEditing) {
+      inputRef.current!.focus();
+    }
+  }, [isEditing]);
+  return (
+    <div>
+      <div className="editableCell">
+        {isEditing ? (
+          <Form.Item
+            rules={[
+              {
+                required: true,
+                message: "请输入正确的ID",
+              },
+              {
+                validator: async () => {},
+              },
+            ]}
+          >
+            <Input
+              ref={(ref) => (inputRef.current = ref)}
+              onBlur={() => {
+                save();
+              }}
+            />
+          </Form.Item>
+        ) : (
+          <div onClick={() => setIsEditing(true)}>{children}</div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const EditableCell: FC<{
+  children: ReactChild;
+  isEditable: boolean;
+  form: FormInstance<any>;
+}> = ({ children, isEditable, form }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const inputRef = useRef(null);
   let childNode = children;
+
+  useEffect(() => {
+    if (isEditing) {
+      inputRef.current!.focus();
+    }
+  }, [isEditing]);
+
+  const save = async () => {
+    const values = await form.validateFields();
+    setIsEditing(false);
+    console.log("values:", values);
+  };
+
   if (isEditable) {
     childNode = isEditing ? (
       <Form.Item
@@ -79,8 +142,9 @@ const EditableCell: FC<{ children: ReactChild; isEditable: boolean }> = ({
         ]}
       >
         <Input
+          ref={(ref) => (inputRef.current = ref)}
           onBlur={() => {
-            setIsEditing(false);
+            save();
           }}
         />
       </Form.Item>
