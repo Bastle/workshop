@@ -1,39 +1,22 @@
 import React, { lazy, Suspense } from "react";
 import Doc from "../page/doc";
 
-const ContextApp = lazy(() =>
-  import(/*webpackChunkName: "contextApp" */ "../page/context")
-);
-const Hooks = lazy(() =>
-  import(/*webpackChunkName: "hooks" */ "../page/hooks")
-);
-const ReduxApp = lazy(() =>
-  import(/*webpackChunkName: "reduxApp" */ "../page/redux")
-);
+const ContextApp = lazy(() => import(/*webpackChunkName: "contextApp" */ "../page/context"));
+const Hooks = lazy(() => import(/*webpackChunkName: "hooks" */ "../page/hooks"));
+const ReduxApp = lazy(() => import(/*webpackChunkName: "reduxApp" */ "../page/redux"));
 const Cart = lazy(() => import(/*webpackChunkName: "cart" */ "../page/cart"));
-const Login = lazy(() =>
-  import(/*webpackChunkName: "reduxApp" */ "../page/loginPage")
-);
-const AddNum = lazy(() =>
-  import(/*webpackChunkName: "add" */ "../page/addNum")
-);
-const RteDemo = lazy(() =>
-  import(/*webpackChunkName: "rte" */ "../page/rteDemo")
-);
-const MyTransfer = lazy(() =>
-  import(/*webpackChunkName: "transfer" */ "../page/transfer")
-);
-const ReadExcel = lazy(() =>
-  import(/*webpackChunkName: "read" */ "../page/readExcel")
-);
+const Login = lazy(() => import(/*webpackChunkName: "reduxApp" */ "../page/loginPage"));
+const AddNum = lazy(() => import(/*webpackChunkName: "add" */ "../page/addNum"));
+const RteDemo = lazy(() => import(/*webpackChunkName: "rte" */ "../page/rteDemo"));
+const MyTransfer = lazy(() => import(/*webpackChunkName: "transfer" */ "../page/transfer"));
+const ReadExcel = lazy(() => import(/*webpackChunkName: "read" */ "../page/readExcel"));
 const FlowUp = lazy(() => import(/*webpackChunkName: "fu" */ "../page/flowUp"));
 const Fp = lazy(() => import(/*webpackChunkName: "fp" */ "../page/fp"));
 const Tabs = lazy(() => import(/*webpackChunkName: "fp" */ "../page/tabs"));
-const DynamicForm = lazy(() =>
-  import(/*webpackChunkName: "fp" */ "../page/form")
-);
+const DynamicForm = lazy(() => import(/*webpackChunkName: "fp" */ "../page/form"));
+const Clappr = lazy(() => import(/*webpackChunkName: "fp" */ "../page/clappr/index.jsx"));
 
-const LazyComponent = (Com) => (props) => (
+const LazyComponent = Com => props => (
   <Suspense fallback={<div>loading...</div>}>
     <Com {...props} />
   </Suspense>
@@ -126,6 +109,12 @@ const config = [
     path: "/form",
     title: "切换到 form",
     component: LazyComponent(DynamicForm),
+    exact: true,
+  },
+  {
+    path: "/clappr",
+    title: "切换到 clappr",
+    component: LazyComponent(Clappr),
     exact: true,
   },
 ];

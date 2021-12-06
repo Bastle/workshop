@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useCallback } from "react";
+import React, { useState, useMemo, useEffect, useCallback, useRef } from "react";
 
 const Hooks = () => {
   const [count, setCount] = useState(0);
@@ -8,17 +8,6 @@ const Hooks = () => {
   useEffect(() => {
     console.log(11111111111);
   }, [testObj]);
-
-  const handleClick = () => {
-    alert(count);
-  };
-
-  useEffect(() => {
-    window.addEventListener("dblclick", handleClick);
-    return () => {
-      window.removeEventListener("dblclick", handleClick);
-    };
-  }, [count]);
 
   return (
     <div>
@@ -39,15 +28,18 @@ const Hooks = () => {
       >
         change
       </button>
-      <button key="3" onClick={handleClick}>
-        alert count
-      </button>
     </div>
   );
 };
 
 const ShowCount = ({ myCount }) => {
-  return <p>{myCount}</p>;
+  const countRef = useRef(myCount);
+  return (
+    <div>
+      <p>{myCount}</p>
+      <p>{countRef.current}</p>
+    </div>
+  );
 };
 
 export default Hooks;
