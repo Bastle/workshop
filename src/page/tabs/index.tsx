@@ -1,23 +1,24 @@
 import React from "react";
-import { Carousel } from "antd";
+import { unstable_Tabs as Tabs } from "@ant-design/mobile";
+import "@ant-design/mobile-styles/lib/Tabs/index.less";
 import "./index.less";
 
-const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const Tabs = () => {
+const { Item } = Tabs;
+const len = [1, 2, 3, 4];
+const TabsWrap = () => {
   return (
     <div className="tabs-wrap">
-      <div className="tabs-nav-wrap">
-        <ul>
-          {list.map((item, index) => {
-            return <li>{item}</li>;
-          })}
-        </ul>
-        <div className="arror">向下</div>
-      </div>
-      <div className="mask"></div>
-      <Carousel />
+      <Tabs>
+        {len.map((tab, i) => {
+          return (
+            <Item tab={{ title: "1111", desc: "123", badge: "6" }} key={i}>
+              <div>{i}</div>
+            </Item>
+          );
+        })}
+      </Tabs>
     </div>
   );
 };
 
-export default Tabs;
+export default TabsWrap;

@@ -103,7 +103,7 @@ const config = [
     title: "切换到 tabs",
     component: LazyComponent(Tabs),
     exact: true,
-    hideEntry: true,
+    // hideEntry: true,
   },
   {
     path: "/form",

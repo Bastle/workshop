@@ -36,7 +36,10 @@ module.exports = {
           'style-loader',
           'css-loader',
           'less-loader'
-        ]
+        ],
+        options: {
+          javascriptEnabled: true
+        }
       },{
         test: /\.(png|jpg|svg|gif)$/,
         include: path.resolve(__dirname, '../src'),
